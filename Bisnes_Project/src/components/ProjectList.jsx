@@ -68,10 +68,17 @@ const ProjectList=()=>{
       setDescription={setDescription}
       addTask={addTask} />
       <div className="filter-bar">
-        <button onClick={() => setFilter("all")}>All</button>
-        <button onClick={() => setFilter("todo")}>Todo</button>
-        <button onClick={() => setFilter("in-progress")}>In Progress</button>
-        <button onClick={() => setFilter("done")}>Done</button>
+        <button onClick={() => setFilter("all")}
+            className={filt==="all"?"active":""}>All</button>
+
+        <button onClick={() => setFilter("todo")}
+            className={filt==="todo"?"active":""}>Todo</button>
+
+        <button onClick={() => setFilter("in-progress")}
+            className={filt==="in-progress"?"active":""}>In Progress</button>
+
+        <button onClick={() => setFilter("done")}
+            className={filt==="done"?"active":""}>Done</button>
         </div>
 
         <TaskBoard
