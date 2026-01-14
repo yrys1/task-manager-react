@@ -2,6 +2,7 @@ const TaskCard=({
     item,
     deleteTask,
     changeStatus,
+    
 
 })=>{
 
@@ -14,7 +15,9 @@ const TaskCard=({
             <div>{item.description}</div>
 
 
-            <button onClick={()=>deleteTask(item.id)}>Delete</button>
+            <button 
+            className="delete-btn"
+            onClick={()=>deleteTask(item.id)}>Delete</button>
             <select value={item.status}
             onChange={(e)=>changeStatus(item.id,e.target.value)}>
                 <option value="todo" >Todo</option>
@@ -24,6 +27,7 @@ const TaskCard=({
             
 
         </li>
+        
     )
 
 }

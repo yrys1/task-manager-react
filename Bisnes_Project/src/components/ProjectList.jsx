@@ -54,6 +54,17 @@ const ProjectList=()=>{
         )
     }
 
+
+    const clearDone=()=>{
+       const ques=confirm("Are you sure you want to delete this item?")
+
+        if(ques){
+             setArrTask(prev=>
+            prev.filter(item=>item.status !=="done")
+        )}
+        return;
+    }
+
     useEffect(()=>{
         localStorage.setItem("taskKey",JSON.stringify(arrTask))
     },[arrTask])
@@ -66,7 +77,10 @@ const ProjectList=()=>{
       description={description}
       setTasks={setTasks}
       setDescription={setDescription}
-      addTask={addTask} />
+      addTask={addTask}
+      clearDone={clearDone}
+       />
+  <div className="top-bar">
       <div className="filter-bar">
         <button onClick={() => setFilter("all")}
             className={filt==="all"?"active":""}>All</button>
@@ -84,7 +98,9 @@ const ProjectList=()=>{
         <TaskBoard
         arrTask={filterTask}
         deleteTask={deleteTask}
-        changeStatus={changeStatus}/>
+        changeStatus={changeStatus}
+        />
+        </div>
         </div>
     )
 }

@@ -3,11 +3,12 @@ const AddtaskForm=({
     description,
     setTasks,
     setDescription,
-    addTask
+    addTask,
+    clearDone
 })=>{
 
     return(
-        <div>
+        <div className="add-task-form">
              <input type="text" 
         value={task}
         placeholder="Input task"
@@ -18,7 +19,12 @@ const AddtaskForm=({
         placeholder="input description"
         />
 
-        <button onClick={addTask}>Add</button>
+        <button  
+        className="primary"
+        onClick={addTask}>Add</button>
+        <button 
+       className="danger" 
+        onClick={clearDone}>Delete done</button>
 
         </div>
     )

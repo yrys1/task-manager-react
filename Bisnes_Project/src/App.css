@@ -10,77 +10,62 @@
 
 /* ===== BODY ===== */
 body {
-  background-color: #f3f4f6;
+  background: #f3f4f6;
+  padding: 32px;
   color: #111827;
-  padding: 40px;
 }
 
 /* ===== APP CONTAINER ===== */
 .container {
-  max-width: 900px;
+  max-width: 1100px;
   margin: 0 auto;
   background: #ffffff;
-  padding: 28px;
   border-radius: 14px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  padding: 24px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
 }
 
-/* ===== ADD TASK FORM ===== */
-.add-task-form {
-  display: grid;
-  gap: 14px;
-  margin-bottom: 28px;
-}
-
-input,
-textarea,
-select {
-  padding: 12px 14px;
-  border-radius: 10px;
-  border: 1px solid #d1d5db;
-  font-size: 14px;
-  background: #fff;
-}
-
-textarea {
-  resize: vertical;
-  min-height: 70px;
-}
-
-input:focus,
-textarea:focus,
-select:focus {
-  outline: none;
-  border-color: #2563eb;
-  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+/* ===== TOP BAR ===== */
+.top-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
 }
 
 /* ===== BUTTONS ===== */
 button {
-  padding: 10px 16px;
+  padding: 8px 14px;
+  border-radius: 8px;
   border: none;
-  border-radius: 10px;
-  background-color: #2563eb;
-  color: #ffffff;
   font-size: 14px;
   font-weight: 500;
   cursor: pointer;
-  transition: background 0.2s, transform 0.1s;
+  transition: background 0.15s;
 }
 
-button:hover {
-  background-color: #1e40af;
+button.primary {
+  background: #2563eb;
+  color: white;
 }
 
-button:active {
-  transform: scale(0.97);
+button.primary:hover {
+  background: #1e40af;
+}
+
+button.danger {
+  background: #ef4444;
+  color: white;
+}
+
+button.danger:hover {
+  background: #b91c1c;
 }
 
 /* ===== FILTER BAR ===== */
 .filter-bar {
   display: flex;
-  gap: 10px;
-  margin-bottom: 24px;
+  gap: 8px;
 }
 
 .filter-bar button {
@@ -93,68 +78,104 @@ button:active {
   color: white;
 }
 
+/* ===== ADD TASK FORM ===== */
+.add-task-form {
+  display: grid;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+input,
+textarea,
+select {
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  font-size: 14px;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 60px;
+}
+
 /* ===== TASK LIST ===== */
 ul {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 8px;
 }
 
-/* ===== TASK CARD ===== */
+/* ===== TASK ROW ===== */
 .task-card {
-  padding: 16px;
-  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
   background: #f9fafb;
+  border-radius: 10px;
   border: 1px solid #e5e7eb;
+  min-height: 64px;
+}
+
+/* ===== TASK TEXT ===== */
+.task-info {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  transition: box-shadow 0.2s, transform 0.1s;
+  gap: 4px;
 }
 
-.task-card:hover {
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-  transform: translateY(-2px);
-}
-
-.task-card strong {
-  font-size: 15px;
-  font-weight: 600;
-}
-
-.task-card div {
+.task-info strong {
   font-size: 14px;
-  color: #4b5563;
 }
 
-/* ===== TASK FOOTER ===== */
-.task-card-footer {
+.task-info div {
+  font-size: 13px;
+  color: #6b7280;
+  max-width: 600px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ===== TASK ACTIONS ===== */
+.task-actions {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  margin-top: 6px;
+  gap: 12px;
+}
+
+/* ===== STATUS BADGE ===== */
+.status {
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.status.todo {
+  background: #e5e7eb;
+  color: #374151;
+}
+
+.status.in-progress {
+  background: #dbeafe;
+  color: #1d4ed8;
+}
+
+.status.done {
+  background: #dcfce7;
+  color: #166534;
 }
 
 /* ===== DELETE BUTTON ===== */
-.task-card .delete-btn {
-  background-color: #ef4444;
+.delete-btn {
+  background: transparent;
+  color: #ef4444;
+  font-size: 13px;
 }
 
-.task-card .delete-btn:hover {
-  background-color: #b91c1c;
-}
-
-/* ===== STATUS COLORS ===== */
-.task-card.todo {
-  border-left: 6px solid #9ca3af;
-}
-
-.task-card.in-progress {
-  border-left: 6px solid #f59e0b;
-}
-
-.task-card.done {
-  border-left: 6px solid #10b981;
-  opacity: 0.85;
+.delete-btn:hover {
+  text-decoration: underline;
 }

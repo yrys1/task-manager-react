@@ -3,7 +3,8 @@ import TaskCard from "./TaskCard";
 const TaskBoard=({
      arrTask,
      deleteTask,
-     changeStatus
+     changeStatus,
+     
      
 })=>{
     
@@ -17,6 +18,7 @@ const TaskBoard=({
                 item={item}
                 deleteTask={deleteTask}
                 changeStatus={changeStatus}
+                
                 />
                 
                 )}
